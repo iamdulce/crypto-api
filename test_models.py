@@ -1,4 +1,4 @@
-from crypto_exchange.model import AllCoinApiIO
+from crypto_exchange.model import AllCoinApiIO, Exchange, ModelError
 from config import api_Key
 #16156 de  16378 (222)
 

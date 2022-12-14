@@ -1,4 +1,4 @@
 env_virtual/
-**__pycache__**/
+**__pycache__/
 .vscode/
 config.py

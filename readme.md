@@ -18,3 +18,5 @@ api_Key = '0000AAAA-00EE-00II-0O0O-0UUU000AAA00'
 ```
 pip install -r requirements.txt
 ```
+
+- Librerías usadas: pytest y request
