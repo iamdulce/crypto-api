@@ -13,7 +13,7 @@ class AllCoinApiIO:
 		if r.status_code != 200:
 			raise Exception( "Error en consulta de assets:{}".format(r.status_code))
 
-		lista_general = r.json
+		lista_general = r.json()
 		for item in lista_general:
 			if item['type_is_crypto'] == 1:
 				self.cryptos.append(item['asset_id'])

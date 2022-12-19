@@ -1,5 +1,7 @@
 
-numero='33FFF'
+numero=None
 
 #print( isinstance(numero, float) )
-print( numero.isalpha() )
+#print( numero.isalpha() )
+
+print (numero is None)
