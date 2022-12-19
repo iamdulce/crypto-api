@@ -5,7 +5,7 @@ r = requests.get(f'https://rest.coinapi.io/v1/assets/?apikey={api_Key}') #Hago l
 if r.status_code != 200: #asegura que la petición(200) sea valida y muestre el resultado si existe el dato (moneda) ingresad0
 	raise Exception( "Error en consulta de assets:{}".format(r.status_code) )
 
-lista_general= r.json() #obtengo todos los datos de cada moneda (crypto o no). Se guardan como diccionario
+lista_general= r.json() #obtengo todos los datos de cada moneda (crypto o no). Se guardan como una estructura de diccionario
 
 
 lista_criptos=[]

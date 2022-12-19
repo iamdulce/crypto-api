@@ -1,5 +1,6 @@
 from crypto_exchange.model import AllCoinApiIO, Exchange, ModelError
 from config import api_Key
+import pytest
 #16156 de  16378 (222)
 
 def test_todocoin():
@@ -17,8 +18,14 @@ def test_cambio_ok():
 	assert cambio.rate > 0 #Que el valor de la  coin sea mayor a 0 si la llamada a la api va bien
 	print(cambio.rate)
 	assert isinstance(cambio.time,str)
+	print(cambio.time)
+	#para ver los prints en consola puedo usar pytest -s
 
-def test_cambio_no_ok():
-	noOk = Exchange("NADA")
-	#conseguir comparar Resultado de la clase ModelError, consultar como lo hicimos en romanos
-	#assert noOk.updateExchange(apiKey) ==  ModelError( f"status: {noOk.r.status_code} error: {noOk.resultado['error']} ")
+def test_cambio_no_ok():#para esta es cuando necesito importar pytest, y poder capturar el error
+	noOk = Exchange("NADAdhajkf")
+	#assert noOk.updateExchange(api_Key) ==  ModelError( f"status: {noOk.r.status_code} error: {noOk.resultado['error']} ")
+
+	with pytest.raises(ModelError) as exceptionInfo:
+		noOk.updateExchange(api_Key)
+	
+	assert str(exceptionInfo.value) == "status: 550 error: You requested specific single item that we don't have at this moment. "

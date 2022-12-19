@@ -1,3 +1,4 @@
+#MODEL: donde puedo acceder y actualizar la info
 import requests
 
 class ModelError(Exception):
@@ -11,7 +12,7 @@ class AllCoinApiIO:
 	def getCoins(self, api_Key):
 		r = requests.get(f'https://rest.coinapi.io/v1/assets/?apikey={api_Key}')
 		if r.status_code != 200:
-			raise Exception( "Error en consulta de assets:{}".format(r.status_code))
+			raise ModelError( "Error en consulta de assets:{}".format(r.status_code))
 
 		lista_general = r.json()
 		for item in lista_general:
@@ -33,6 +34,6 @@ class Exchange:
 		self.resultado = self.r.json()
 		if self.r.status_code == 200:
 			self.rate = self.resultado['rate']
-			self.time == self.resultado['time']
+			self.time = self.resultado['time']
 		else:    
 			raise ModelError( f"status: {self.r.status_code} error: {self.resultado['error']} ")

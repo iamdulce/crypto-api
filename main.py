@@ -1,5 +1,5 @@
-from config import api_Key
-from crypto_exchange.model import Exchange
+from crypto_exchange.controller import CryptoExchangeController
 
-cambio = Exchange('NADA')
-cambio.updateExchange(api_Key)
+program = CryptoExchangeController()
+
+program.executeProgram()
