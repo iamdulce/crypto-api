@@ -37,3 +37,20 @@ class Exchange:
 			self.time = self.resultado['time']
 		else:    
 			raise ModelError( f"status: {self.r.status_code} error: {self.resultado['error']} ")
+
+class ExchangeReverse:
+	def __init__(self,coin):
+		self.coin = coin
+		self.rate = None
+		self.time = None
+		self.r = None
+		self.resultado = None
+
+	def updateExchange(self,api_Key):
+		self.r = requests.get(f'https://rest.coinapi.io/v1/exchangerate/{self.coin}/BTC?apikey={api_Key}')
+		self.resultado = self.r.json()
+		if self.r.status_code == 200:
+			self.rate = self.resultado['rate']
+			self.time = self.resultado['time']
+		else:    
+			raise ModelError( f"status: {self.r.status_code} error: {self.resultado['error']} ")

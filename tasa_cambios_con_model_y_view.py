@@ -1,6 +1,6 @@
 '''
 Este archivo funcionaría como el CONTROLLER porque comunica la vista y el model 
-(faltaría convertir en clase para poder ejecutar desde main)
+(faltaría convertir en clase para poder ejecutar desde main) => LLEVAR A ARCHIVO CONTROLLER
 '''
 
 from crypto_exchange.model import AllCoinApiIO,Exchange,ModelError

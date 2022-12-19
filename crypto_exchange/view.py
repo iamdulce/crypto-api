@@ -4,8 +4,8 @@ class Views():
 		pass
 
 	def insertCoin(self):
-		crypto = input("Ingrese moneda digital conocida: ").upper()
-		return crypto
+		coinName = input("Ingrese moneda conocida: ").upper()
+		return coinName
 
 	def viewCoinsList(self, allcoins):
 		print("La cantidad de criptos son {} ,\
@@ -13,7 +13,7 @@ class Views():
 		.format(len(allcoins.cryptos),len(allcoins.no_cryptos)))
 
 	def getRateExchange(self, exchange):
-		print( "{:,.2f}€".format(exchange.rate).replace(",","@").replace(".",",").replace("@",".") )
+		print( "{:,.8f}€".format(exchange.rate).replace(",","@").replace(".",",").replace("@",".") )
 
 	def getError(self, error):
 		print(error)
